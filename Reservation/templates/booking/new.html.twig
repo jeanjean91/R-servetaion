@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Booking{% endblock %}
+
+{% block body %}
+    <h1>Create new Booking</h1>
+
+    {{ include('booking/_form.html.twig') }}
+    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+
+{% endblock %}
