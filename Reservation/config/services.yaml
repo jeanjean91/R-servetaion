@@ -6,11 +6,6 @@
 parameters:
 
 services:
-    # ...
-    App\EventListener\FullCalendarListener:
-        tags:
-            - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadEvents }
-
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.

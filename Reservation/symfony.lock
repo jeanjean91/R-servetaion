@@ -2,6 +2,12 @@
     "clue/phar-composer": {
         "version": "v1.2.0"
     },
+    "components/jquery": {
+        "version": "3.5.1"
+    },
+    "composer/installers": {
+        "version": "v1.10.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -87,6 +93,9 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "fullcalendar/fullcalendar": {
+        "version": "v3.10.2"
+    },
     "guzzlehttp/guzzle": {
         "version": "7.2.0"
     },
@@ -111,6 +120,9 @@
             "config/packages/knp_packagist_api.yaml"
         ]
     },
+    "kriswallsmith/assetic": {
+        "version": "v1.0.5"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -120,11 +132,17 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
     },
+    "moment/moment": {
+        "version": "2.29.1"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
     "nikic/php-parser": {
         "version": "v4.10.4"
+    },
+    "oomphinc/composer-installers-extender": {
+        "version": "2.0.0"
     },
     "phine/exception": {
         "version": "1.0.0"
@@ -164,6 +182,9 @@
     },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
+    },
+    "robloach/component-installer": {
+        "version": "0.0.12"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

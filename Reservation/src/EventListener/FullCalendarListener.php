@@ -2,11 +2,16 @@
 
 namespace App\EventListener;
 
-use App\Entity\Booking;
+
+namespace App\EventListener;
+
+
 use App\Repository\BookingRepository;
+use CalendarBundle\CalendarEvents;
+use CalendarBundle\Entity\Event;
+use CalendarBundle\Event\CalendarEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Toiba\FullCalendarBundle\Entity\Event;
-use Toiba\FullCalendarBundle\Event\CalendarEvent;
 
 class FullCalendarListener
 {
@@ -20,6 +25,7 @@ class FullCalendarListener
         $this->bookingRepository = $bookingRepository;
         $this->router = $router;
     }
+
 
     public function loadEvents(CalendarEvent $calendar): void
     {
