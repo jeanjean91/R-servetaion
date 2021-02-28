@@ -38,6 +38,7 @@ class BookingController extends AbstractController
             $entityManager->persist($booking);
             $entityManager->flush();
 
+            $this->addFlash('success', 'votre rdv á bien ete enregistre !');
             return $this->redirectToRoute('booking_index');
         }
 

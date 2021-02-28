@@ -1,4 +1,87 @@
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+
+{% block body %}
+
+
+
+    <div class="jumbotron" style="margin-top: 40px;">
+
+
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="row" style="max-width: 80vw;margin-left: 150px">
+        <div class="col-md-8">
+            <label for="title">Titre</label>
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="col-md-4">
+            <label for="allDay">Tout la journé?</label>
+            {{ form_widget(form.all_day, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+    </div>
+    <br>
+    <div class="row" style="max-width: 80vw;margin-left: 150px">
+
+        <div class="col-md-6">
+            <label for="beginAt">Debut</label>
+             {{ form_widget(form.beginAt, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+
+
+
+        <div class="col-md-6">
+            <label for="endAt">Fin</label>
+            {{ form_widget(form.endAt, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+
+    </div>
+    <br>
+    <div class="row" style="max-width: 80vw;margin-left: 150px">
+
+        <div class="col-md-12">
+            <label for="description">Description</label>
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <br>
+    <div class="row" style="max-width: 80vw;margin-left: 150px">
+        <div class="col-md-4">
+            <label for="backgroundColor">Couleur de fond</label>
+            {{ form_widget(form.background_color, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="col-md-4">
+            <label for="borderColor">Couleur de bordure</label>
+            {{ form_widget(form.border_color, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="col-md-4">
+            <label for="textColor">Couleur du text</label>
+            {{ form_widget(form.text_color, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+    </div>
+
+
+    <button  style=" width:190px;margin-left: 550px;margin-top: 50px;margin-bottom: 50px" class="btn btn-success" type="submit">
+            {{ button_label|default('Save') }}
+        </button>
 {{ form_end(form) }}
+
+
+<section>
+    <div id="map" style="height: 150px ; width: 360px;margin-left: 170px;  "></div>
+
+
+
+
+    <div id="aaap" class="mt-4" style="margin-left: 50px;width: 800px;margin-bottom: 50px;"></div>
+</section>
+</div>
+{% endblock %}

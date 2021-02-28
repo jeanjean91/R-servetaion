@@ -3,9 +3,13 @@
 {% block title %}New Booking{% endblock %}
 
 {% block body %}
-    <h1>Create new Booking</h1>
+<div class="container-fluid mt-8">
+    <h1>Nouveau RDV</h1>
 
-    {{ include('booking/_form.html.twig') }}
+    <div class="jumbotron" >
+        {{ include('booking/_form.html.twig') }}
+    </div>
 
-    <div id="calendar-holder"></div>
+</div>
+
 {% endblock %}
