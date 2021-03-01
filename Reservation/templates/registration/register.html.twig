@@ -1,0 +1,55 @@
+
+
+
+
+    {% extends 'base.html.twig' %}
+
+    {#{% block title %}Log in!{% endblock %}#}
+
+    {% block body %}
+        <div class="splash-container" style="margin-top: 150px;">
+            <div class="card jumbotron" style="width: 400px;margin: auto">
+
+                <div class="card-body">
+                    <h2 class="bubble-title">Please register</h2>
+                    <br>
+
+
+
+                    {% block fos_user_content %}
+                        {{ form_start(registrationForm) }}
+
+                        {{ form_widget(registrationForm) }}
+                        <button class="btn btn-success">inscription</button>
+
+                        {{ form_end(registrationForm) }}
+
+
+                    {% endblock fos_user_content %}
+
+
+                </div>
+                <div  class="card-footer bg-white p-0  " style="display: flex;flex-direction: row;justify-content: space-around">
+                    <div class="card-footer-item card-footer-item-bordered">
+                        <a href="{{ path('app_login') }}" class="footer-link">Log in</a></div>
+                    <div class="card-footer-item card-footer-item-bordered">
+                        <a href=" {# {{path('app_reset_password',{'token':app.user.csrf_token})}} #}   {#{{path ('app_forgotten_password')}}#} " class="footer-link">Forgot Password</a>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    {% endblock %}
+
+

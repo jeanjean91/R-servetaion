@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>comfirmation</title>
+</head>
+<body>
+<div>
+    <h2 style="color:#253f58; font-size: 25px;">Senior Services - Comfirmation de l'email</h2>
+    <p style="font-size: 15px;">
+       {# <strong style="color: #d92139; font-size: 15px;">
+            {{user.user}}</strong>#}
+        Confirme que ton email est valid en suivant ce lien :</p>
+    <p style="font-size: 15px;">
+        <a href="{{ url }}">Confirmer votre adress email ici!</a>
+    </p>
+    <p style="font-size: 15px;">L'Equipe Senior Services.
+        <br/>
+        Enjoy !
+    </p>
+    <img src= " {{ absolute_url ( asset ( 'images/logo.png' )) }} " >
+</div>
+</body>
+</html>

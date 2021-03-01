@@ -27,19 +27,63 @@ class BookingController extends AbstractController
     /**
      * @Route("/new", name="booking_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request ,\Swift_Mailer $mailer): Response
     {
+
+        $user = $this ->getUser();
         $booking = new Booking();
+        $booking->setUser($user);
         $form = $this->createForm(BookingType::class, $booking);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($booking);
-            $entityManager->flush();
 
-            $this->addFlash('success', 'votre rdv á bien ete enregistre !');
-            return $this->redirectToRoute('booking_index');
+
+
+
+           /* if ($request->isMethod('POST')) {*/
+
+
+                $email = $user->getEmail();
+
+                if ($email === null) {
+                    $this->addFlash('danger', 'Vous devez etre connecter pour prendre un rdv!! ');
+                    return $this->redirectToRoute('app_login');
+                }
+
+
+
+                try {
+                    $entityManager->persist($booking);
+                    $entityManager->flush();
+
+
+                } catch (\Exception $e) {
+                    $this->addFlash('warning', $e->getMessage());
+                    return $this->redirectToRoute('home');
+                }
+
+            /*}*/
+
+            $message = (new \Swift_Message('Comfirmation reservation'))
+                ->setFrom(array('jeandesir84@gmail.com'=> 'Senior Services'))
+                ->setTo($user->getEmail())
+                ->setBody(
+                    $this->renderView(
+                        'emails/confirmeReservation.html.twig',
+                        [
+                            'user'=>$user,
+
+                        ]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
+
+            $this->addFlash('success', 'Votre rdv a ete pris en comte, un email de comfirmation vous a ete envoyer!');
+
+            return $this->redirectToRoute('main');
         }
 
         return $this->render('booking/new.html.twig', [

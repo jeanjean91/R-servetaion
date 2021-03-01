@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% form_theme PrestataireFormtype 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+
+
+    <div class="container-fluid mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4" style="text-align: center;">Inscription prestataire de services </h1>
+        </div>
+        {{ form_start(PrestataireFormtype ) }}
+
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-3">
+                {{ form_row(PrestataireFormtype.user, {'attr': {'placeholder' :"User"}}) }}
+            </div>
+           {# <div class="col-md-3">
+                {{ form_row(PrestataireFormtype.email, {'attr': {'placeholder' :"email"}}) }}
+            </div>#}
+            <div class="col-md-3">
+                {{ form_row( PrestataireFormtype.cv, {'attr': {'placeholder' :"CV"}})}}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(PrestataireFormtype .pieceIdentite, {'attr': {'placeholder' :"piece D'identite"}})  }}
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-12">
+                {{ form_row(PrestataireFormtype .numSecuSocial, {'attr': {'placeholder': "numero securite social"}}) }}
+            </div>
+        </div>
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-3">
+                {{ form_row(PrestataireFormtype .societe, {'attr': {'placeholder': "Nom de votre entreprise"}}) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(PrestataireFormtype .rib, {'attr': {'class': 'form-control'}} ) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(PrestataireFormtype .tel, {'attr': {'placeholder': "numero telephone"}}) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(PrestataireFormtype .siret,{'attr': {'placeholder': "numero siret/sirene"}}) }}
+            </div>
+        </div>
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-12">
+                {{ form_row(PrestataireFormtype .adresse,{'attr': {'placeholder': "adresse"}}) }}
+
+            </div>
+            {#<div class="col-md-12">
+                {{ form_row(PrestataireFormtype .password,{'attr': {'placeholder': "passwprd"}}) }}
+
+            </div>#}
+        </div>
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+        <div class="col-md-12">
+        {{ form_widget(PrestataireFormtype , {'attr': {'class': 'form-control'}}) }}
+        </div>
+        </div>
+        <button  style=" width:190px;margin-left: 550px;margin-top: 50px;margin-bottom: 50px" class="btn btn-success" type="submit">
+             valider
+        </button>
+        {{ form_end(PrestataireFormtype ) }}
+
+    </div>
+{% endblock %}

@@ -47,7 +47,37 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+
+
+
+                        {% if app.user %}
+
+
+                            <a href="{{ path('app_logout') }}" style="color: #9e1a1a"> <span>Logout</span></a>
+                        {% else %}
+
+
+
+                            <a href="{{ path('app_login') }}" style="color: #449d44"><span>Login</span></a>
+                        {% endif %}
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
             </div>
+
+
         </div>
     </nav>
 
@@ -78,9 +108,10 @@
 
         <script>
             $(document).ready(function () {
-                $("#close").click(function () {
-                    $(".alert").fadeOut();
-                });
+
+                    $("#close").click(function () {
+                        $(".alert-success").hide();
+                    });
             });
         </script>
         <!-- JavaScript Bundle with Popper -->
