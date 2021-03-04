@@ -42,7 +42,7 @@ class BookingController extends AbstractController
 
 
 
-           /* if ($request->isMethod('POST')) {*/
+           if ($request->isMethod('POST'))
 
 
                 $email = $user->getEmail();
@@ -64,16 +64,20 @@ class BookingController extends AbstractController
                     return $this->redirectToRoute('home');
                 }
 
-            /*}*/
+
 
             $message = (new \Swift_Message('Comfirmation reservation'))
-                ->setFrom(array('jeandesir84@gmail.com'=> 'Senior Services'))
+                ->setFrom(array('jeandesir84@gmail.com'=> 'Reservation'))
                 ->setTo($user->getEmail())
+
+
+
                 ->setBody(
                     $this->renderView(
                         'emails/confirmeReservation.html.twig',
                         [
                             'user'=>$user,
+                            'booking' => $booking,
 
                         ]
                     ),
@@ -85,6 +89,7 @@ class BookingController extends AbstractController
 
             return $this->redirectToRoute('main');
         }
+
 
         return $this->render('booking/new.html.twig', [
             'booking' => $booking,

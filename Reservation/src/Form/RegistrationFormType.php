@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
 
-            /*->add('user')*/
+            ->add('user')
             ->add('civilite',ChoiceType::class, [
 
                 'attr'=> [

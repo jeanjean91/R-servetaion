@@ -107,7 +107,7 @@ class RegistrationController extends AbstractController
 
                 $this->addFlash('success', 'Bravo! Votre compte à bien été, un email de confirmation vous a été envoyer  allerz confimer votre adress email!');
 
-                return $this->redirectToRoute('home');
+                return $this->redirectToRoute('main');
 
             }
             // do anything else you need here, like send an email

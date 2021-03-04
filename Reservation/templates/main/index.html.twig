@@ -65,6 +65,7 @@
             calendar.on('eventChange', (e) => {
                 let url = `/api/${e.event.id}/edit`
                 let donnees = {
+                    "user": e.event.user,
                     "title": e.event.title,
                     "description": e.event.extendedProps.description,
                     "start": e.event.beginAt,

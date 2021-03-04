@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>user</th>
                 <th>BeginAt</th>
                 <th>EndAt</th>
                 <th>Title</th>
@@ -19,6 +20,7 @@
         {% for booking in bookings %}
             <tr>
                 <td>{{ booking.id }}</td>
+                <td> {{  booking | keys | join('  ') }}</td>
                 <td>{{ booking.beginAt ? booking.beginAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ booking.endAt ? booking.endAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ booking.title }}</td>
