@@ -47,7 +47,18 @@ class User implements UserInterface
      * @Assert\Length(min=2)
      * @Assert\NotBlank()
      */
-    private $user;
+
+    private $username;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Participant", mappedBy="user")
+     */
+    private $participants;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="user")
+     */
+    private $messages;
 
 
     /**
@@ -70,6 +81,14 @@ class User implements UserInterface
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
+    }
+
+    /**
+     * @return string
+     */
+    public function getResetToken(): string
+    {
+        return $this->resetToken;
     }
 
 
@@ -97,7 +116,14 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
     /**
@@ -157,17 +183,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getUser(): ?string
-    {
-        return $this->user;
-    }
 
-    public function setUser(?string $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 
 
 
@@ -232,6 +248,68 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($booking->getUser() === $this) {
                 $booking->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Participant[]
+     */
+    public function getParticipants(): Collection
+    {
+        return $this->participants;
+    }
+
+    public function addParticipant(Participant $participant): self
+    {
+        if (!$this->participants->contains($participant)) {
+            $this->participants[] = $participant;
+            $participant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participant $participant): self
+    {
+        if ($this->participants->contains($participant)) {
+            $this->participants->removeElement($participant);
+            // set the owning side to null (unless already changed)
+            if ($participant->getUser() === $this) {
+                $participant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            // set the owning side to null (unless already changed)
+            if ($message->getUser() === $this) {
+                $message->setUser(null);
             }
         }
 

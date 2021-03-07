@@ -1,0 +1,93 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}liste des utlilisateur{% endblock %}
+
+{% block body %}
+
+
+
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">
+    <div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Liste des utilisateurs</h3>
+        </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>UserName</th>
+                <th>Email</th>
+
+                <th>Civilite</th>
+
+                <th>Roles</th>
+
+                <th>Edité Roles</th>
+                <th>Voir User</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%  for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.email }}</td>
+
+                <td>{{ user.civilite }}</td>
+                <td>
+                {% for role in user.roles %}
+                {{ role }}
+
+
+                {% endfor %}
+
+                </td>
+                <td> <a href="{{path("admin.roles",{'id':user.id})}}" ><i class="far fa-edit"></i></a></td>
+                <td> <a href="{#{{path("admin.roles",{'id':user.id})}}#}" ><i class="fas fa-eye"></i></a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Pseudo</th>
+                <th>Email</th>
+                
+                <th>Civilite</th>
+                <th>Roles</th>
+
+                <th>Edité Roles</th>
+                <th>Voir User</th>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="navigation" style="margin-left: 300px;margin-top: 20px;">
+
+
+
+            <div class="pagination">
+
+
+                {{ knp_pagination_render( users ) }}
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>
+
+
+
+{% endblock %}

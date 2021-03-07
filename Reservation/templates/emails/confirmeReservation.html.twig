@@ -1,7 +1,7 @@
 {# templates/emails/confirmeReservation.html.twig #}
 <h3> Confirmation ! </h3>
 
-Bonjour {{ user.user }} ! Votre rdv est confirmée.<br>
+Bonjour {{ user.userName }} ! Votre rdv est confirmée.<br>
 
 Vous avez pris un RDV {{ booking.title }} le  {{ booking.beginAt ? booking.beginAt|date('Y-m-d H:i:s') : '' }} jusqu'au {{ booking.endAt ? booking.endAt|date('Y-m-d H:i:s') : '' }}
 
