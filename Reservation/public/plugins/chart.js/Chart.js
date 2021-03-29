@@ -1528,7 +1528,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -3040,7 +3040,7 @@ var helpers_options = {
 
 	/**
 	 * Converts the given value into a padding object with pre-computed width/height.
-	 * @param {number|object} value - If a number, set the value to all TRBL component,
+	 * @param {number|object} value - If a number, set the value to all TRBL components,
 	 *  else, if and object, use defined properties and sets undefined ones to 0.
 	 * @returns {object} The padding values (top, right, bottom, left, width, height)
 	 * @since 2.7.0
@@ -3634,7 +3634,7 @@ helpers$1.extend(DatasetController.prototype, {
 	/**
 	 * Dataset element option keys to be resolved in _resolveDatasetElementOptions.
 	 * A derived controller may override this to resolve controller-specific options.
-	 * The keys defined here are for backward compatibility for legend styles.
+	 * The keys defined here are for backward compatibility for legend css.
 	 * @private
 	 */
 	_datasetElementOptions: [
@@ -3650,7 +3650,7 @@ helpers$1.extend(DatasetController.prototype, {
 	/**
 	 * Data element option keys to be resolved in _resolveDataElementOptions.
 	 * A derived controller may override this to resolve controller-specific options.
-	 * The keys defined here are for backward compatibility for legend styles.
+	 * The keys defined here are for backward compatibility for legend css.
 	 * @private
 	 */
 	_dataElementOptions: [
@@ -7683,7 +7683,7 @@ function removeResizeListener(node) {
 }
 
 /**
- * Injects CSS styles inline if the styles are not already present.
+ * Injects CSS css inline if the css are not already present.
  * @param {HTMLDocument|ShadowRoot} rootNode - the node to contain the <style>.
  * @param {string} css - the CSS to be injected.
  */
@@ -7724,7 +7724,7 @@ var platform_dom$2 = {
 	 */
 	_ensureLoaded: function(canvas) {
 		if (!this.disableCSSInjection) {
-			// If the canvas is in a shadow DOM, then the styles must also be inserted
+			// If the canvas is in a shadow DOM, then the css must also be inserted
 			// into the same shadow DOM.
 			// https://github.com/chartjs/Chart.js/issues/5763
 			var root = canvas.getRootNode ? canvas.getRootNode() : document;

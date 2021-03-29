@@ -91,7 +91,7 @@ class RegistrationController extends AbstractController
                 $url = $this->generateUrl('app_login', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
                 $message = (new \Swift_Message('Confirmation email'))
-                    ->setFrom(array('jeandesir84@gmail.com' => 'Senior Services'))
+                    ->setFrom(array('jeandesir84@gmail.com' => 'Reservation'))
                     ->setTo($user->getEmail())
                     ->setBody(
                         $this->renderView(

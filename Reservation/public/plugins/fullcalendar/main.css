@@ -29,7 +29,7 @@ body .fc {
 
 .fc-nonbusiness {
   /* default look for non-business-hours areas */
-  /* will inherit .fc-bgevent's styles */
+  /* will inherit .fc-bgevent's css */
   background: #d7d7d7;
 }
 

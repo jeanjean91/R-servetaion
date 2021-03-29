@@ -18,7 +18,7 @@ class MainController extends AbstractController
      * @param BookingRepository $calendar
      * @return Response
      */
-    public function index(BookingRepository $calendar)
+    public function ix(BookingRepository $calendar)
     {
         $events = $calendar->findAll();
 
@@ -45,9 +45,9 @@ class MainController extends AbstractController
 
 
     /**
-     * @Route("/", name="token")
+     * @Route("/messages", name="main.messages")
      */
-    public function token()
+    public function index()
     {
         $username = $this->getUser()->getUsername();
         $token = (new Builder())
@@ -58,7 +58,7 @@ class MainController extends AbstractController
             )
         ;
 
-        $response =  $this->render('index/index.html.twig', [
+        $response =  $this->render('main/mymessage.html.twig', [
             'controller_name' => 'IndexController',
         ]);
 

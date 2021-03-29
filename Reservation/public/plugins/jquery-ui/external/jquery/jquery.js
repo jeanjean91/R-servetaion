@@ -1609,11 +1609,11 @@ Expr = Sizzle.selectors = {
 				1 type (only|nth|...)
 				2 what (child|of-type)
 				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
-				4 xn-component of xn+y argument ([+-]?\d*n|)
-				5 sign of xn-component
-				6 x of xn-component
-				7 sign of y-component
-				8 y of y-component
+				4 xn-components of xn+y argument ([+-]?\d*n|)
+				5 sign of xn-components
+				6 x of xn-components
+				7 sign of y-components
+				8 y of y-components
 			*/
 			match[1] = match[1].toLowerCase();
 
@@ -6633,7 +6633,7 @@ var documentElement = document.documentElement;
 			boxSizingReliableVal = ( divStyle || { width: "4px" } ).width === "4px";
 
 			// Support: Android 4.0 - 4.3 only
-			// Some styles come back with percentage values, even though they shouldn't
+			// Some css come back with percentage values, even though they shouldn't
 			div.style.marginRight = "50%";
 			pixelMarginRightVal = ( divStyle || { marginRight: "4px" } ).marginRight === "4px";
 
@@ -7022,7 +7022,7 @@ function getWidthOrHeight( elem, name, extra ) {
 		val = parseFloat( val ) || 0;
 	}
 
-	// use the active box-sizing model to add/subtract irrelevant styles
+	// use the active box-sizing model to add/subtract irrelevant css
 	return ( val +
 		augmentWidthOrHeight(
 			elem,
@@ -7079,7 +7079,7 @@ jQuery.extend( {
 	// Get and set the style property on a DOM Node
 	style: function( elem, name, value, extra ) {
 
-		// Don't set styles on text and comment nodes
+		// Don't set css on text and comment nodes
 		if ( !elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style ) {
 			return;
 		}

@@ -1582,7 +1582,7 @@ Meant to be immutable
 */
 var ComponentFootprint = /** @class */ (function () {
     function ComponentFootprint(unzonedRange, isAllDay) {
-        this.isAllDay = false; // component can choose to ignore this
+        this.isAllDay = false; // components can choose to ignore this
         this.unzonedRange = unzonedRange;
         this.isAllDay = isAllDay;
     }
@@ -2334,7 +2334,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(2);
 var util_1 = __webpack_require__(4);
 var DragListener_1 = __webpack_require__(54);
-/* Tracks mouse movements over a component and raises events about which hit the mouse is over.
+/* Tracks mouse movements over a components and raises events about which hit the mouse is over.
 ------------------------------------------------------------------------------------------------------------------------
 options:
 - subjectEl
@@ -2463,8 +2463,8 @@ var HitDragListener = /** @class */ (function (_super) {
     return HitDragListener;
 }(DragListener_1.default));
 exports.default = HitDragListener;
-// Returns `true` if the hits are identically equal. `false` otherwise. Must be from the same component.
-// Two null values will be considered equal, as two "out of the component" states are the same.
+// Returns `true` if the hits are identically equal. `false` otherwise. Must be from the same components.
+// Two null values will be considered equal, as two "out of the components" states are the same.
 function isHitsEqual(hit0, hit1) {
     if (!hit0 && !hit1) {
         return true;
@@ -3491,7 +3491,7 @@ var InteractiveDateComponent = /** @class */ (function (_super) {
         for (i = 0; i < eventFootprints.length; i++) {
             // treat it as a selection
             // TODO: pass in eventInstanceGroup instead
-            //  because we don't want calendar's constraint system to depend on a component's
+            //  because we don't want calendar's constraint system to depend on a components's
             //  determination of footprints.
             if (!view.calendar.constraints.isSelectionFootprintAllowed(eventFootprints[i].componentFootprint)) {
                 return false;
@@ -3885,7 +3885,7 @@ var View = /** @class */ (function (_super) {
         if (dateMutation) {
             eventInstance.dateProfile = dateMutation.buildNewDateProfile(eventInstance.dateProfile, this.calendar);
         }
-        this.triggerEventDrop(eventInstance, 
+        this.triggerEventDrop(eventInstance,
         // a drop doesn't necessarily mean a date mutation (ex: resource change)
         (dateMutation && dateMutation.dateDelta) || moment.duration(), undoFunc, el, ev);
     };
@@ -6014,7 +6014,7 @@ var tslib_1 = __webpack_require__(2);
 var util_1 = __webpack_require__(4);
 var Mixin_1 = __webpack_require__(14);
 /*
-A set of rendering and date-related methods for a visual component comprised of one or more rows of day columns.
+A set of rendering and date-related methods for a visual components comprised of one or more rows of day columns.
 Prerequisite: the object being mixed into needs to be a *Grid*
 */
 var DayTableMixin = /** @class */ (function (_super) {
@@ -6367,7 +6367,7 @@ exports.default = DayTableMixin;
 Object.defineProperty(exports, "__esModule", { value: true });
 var BusinessHourRenderer = /** @class */ (function () {
     /*
-    component implements:
+    components implements:
       - eventRangesToEventFootprints
       - eventFootprintsToSegs
     */
@@ -6586,7 +6586,7 @@ var EventPointing = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /*
-    component must implement:
+    components must implement:
       - publiclyTrigger
     */
     EventPointing.prototype.bindToEl = function (el) {
@@ -6697,7 +6697,7 @@ var DayTableMixin_1 = __webpack_require__(55);
 var DayGridEventRenderer_1 = __webpack_require__(250);
 var DayGridHelperRenderer_1 = __webpack_require__(251);
 var DayGridFillRenderer_1 = __webpack_require__(252);
-/* A component that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
+/* A components that renders a grid of whole-days that runs horizontally. There can be multiple rows, one per week.
 ----------------------------------------------------------------------------------------------------------------------*/
 var DayGrid = /** @class */ (function (_super) {
     tslib_1.__extends(DayGrid, _super);
@@ -6706,7 +6706,7 @@ var DayGrid = /** @class */ (function (_super) {
         _this.cellWeekNumbersVisible = false; // display week numbers in day cell?
         _this.bottomCoordPadding = 0; // hack for extending the hit area for the last row of the coordinate grid
         // isRigid determines whether the individual rows should ignore the contents and be a constant height.
-        // Relies on the view's colCnt and rowCnt. In the future, this component should probably be self-sufficient.
+        // Relies on the view's colCnt and rowCnt. In the future, this components should probably be self-sufficient.
         _this.isRigid = false;
         _this.hasAllDayBusinessHours = true;
         return _this;
@@ -6739,7 +6739,7 @@ var DayGrid = /** @class */ (function (_super) {
     DayGrid.prototype.unrenderDates = function () {
         this.removeSegPopover();
     };
-    // Renders the rows and columns into the component's `this.el`, which should already be assigned.
+    // Renders the rows and columns into the components's `this.el`, which should already be assigned.
     DayGrid.prototype.renderGrid = function () {
         var view = this.view;
         var rowCnt = this.rowCnt;
@@ -7361,7 +7361,7 @@ var BasicView = /** @class */ (function (_super) {
         this.scroller.destroy();
     };
     // Builds the HTML skeleton for the view.
-    // The day-grid component will render inside of a container defined by this HTML.
+    // The day-grid components will render inside of a container defined by this HTML.
     BasicView.prototype.renderSkeletonHtml = function () {
         var theme = this.calendar.theme;
         return '' +
@@ -7449,7 +7449,7 @@ var BasicView = /** @class */ (function (_super) {
         return totalHeight -
             util_1.subtractInnerElHeight(this.el, this.scroller.el); // everything that's NOT the scroller
     };
-    // Sets the height of just the DayGrid component in this view
+    // Sets the height of just the DayGrid components in this view
     BasicView.prototype.setGridHeight = function (height, isAuto) {
         if (isAuto) {
             util_1.undistributeHeight(this.dayGrid.rowEls); // let the rows be their natural height with no expanding
@@ -10513,7 +10513,7 @@ var ExternalDropping = /** @class */ (function (_super) {
         return _this;
     }
     /*
-    component impements:
+    components impements:
       - eventRangesToEventFootprints
       - isEventInstanceGroupAllowed
       - isExternalInstanceGroupAllowed
@@ -10718,7 +10718,7 @@ var Interaction_1 = __webpack_require__(15);
 var EventResizing = /** @class */ (function (_super) {
     tslib_1.__extends(EventResizing, _super);
     /*
-    component impements:
+    components impements:
       - bindSegHandlerToEl
       - publiclyTrigger
       - diffDates
@@ -10911,7 +10911,7 @@ var Interaction_1 = __webpack_require__(15);
 var EventDragging = /** @class */ (function (_super) {
     tslib_1.__extends(EventDragging, _super);
     /*
-    component implements:
+    components implements:
       - bindSegHandlerToEl
       - publiclyTrigger
       - diffDates
@@ -11183,7 +11183,7 @@ var Interaction_1 = __webpack_require__(15);
 var DateSelecting = /** @class */ (function (_super) {
     tslib_1.__extends(DateSelecting, _super);
     /*
-    component must implement:
+    components must implement:
       - bindDateHandlerToEl
       - getSafeHitFootprint
       - renderHighlight
@@ -11504,11 +11504,11 @@ var AgendaView = /** @class */ (function (_super) {
     ------------------------------------------------------------------------------------------------------------------*/
     // forward all hit-related method calls to the grids (dayGrid might not be defined)
     AgendaView.prototype.getHitFootprint = function (hit) {
-        // TODO: hit.component is set as a hack to identify where the hit came from
+        // TODO: hit.components is set as a hack to identify where the hit came from
         return hit.component.getHitFootprint(hit);
     };
     AgendaView.prototype.getHitEl = function (hit) {
-        // TODO: hit.component is set as a hack to identify where the hit came from
+        // TODO: hit.components is set as a hack to identify where the hit came from
         return hit.component.getHitEl(hit);
     };
     /* Event Rendering
@@ -11655,7 +11655,7 @@ var ComponentFootprint_1 = __webpack_require__(12);
 var TimeGridEventRenderer_1 = __webpack_require__(246);
 var TimeGridHelperRenderer_1 = __webpack_require__(247);
 var TimeGridFillRenderer_1 = __webpack_require__(248);
-/* A component that renders one or more columns of vertical time slots
+/* A components that renders one or more columns of vertical time slots
 ----------------------------------------------------------------------------------------------------------------------*/
 // We mixin DayTable, even though there is only a single row of days
 // potential nice values for the slot-duration and interval-duration
@@ -13658,7 +13658,7 @@ var Interaction_1 = __webpack_require__(15);
 var DateClicking = /** @class */ (function (_super) {
     tslib_1.__extends(DateClicking, _super);
     /*
-    component must implement:
+    components must implement:
       - bindDateHandlerToEl
       - getSafeHitFootprint
       - getHitEl

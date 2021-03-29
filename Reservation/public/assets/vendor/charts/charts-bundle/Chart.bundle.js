@@ -1442,11 +1442,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -1474,12 +1474,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -7332,7 +7332,7 @@ module.exports = function(Chart) {
 			});
 
 			var model = arc._model;
-			// Resets the visual styles
+			// Resets the visual css
 			this.removeHoverStyle(arc);
 
 			// Set correct angles if not resetting
@@ -14957,7 +14957,7 @@ module.exports = {
 
 	/**
 	 * Converts the given value into a padding object with pre-computed width/height.
-	 * @param {Number|Object} value - If a number, set the value to all TRBL component,
+	 * @param {Number|Object} value - If a number, set the value to all TRBL components,
 	 *  else, if and object, use defined properties and sets undefined ones to 0.
 	 * @returns {Object} The padding values (top, right, bottom, left, width, height)
 	 * @since 2.7.0

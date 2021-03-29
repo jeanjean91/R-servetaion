@@ -36,7 +36,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 // The Emitter class provides the ability to call `.on()` on Dropzone to listen
 // to events.
-// It is strongly based on component's emitter class, and I removed the
+// It is strongly based on components's emitter class, and I removed the
 // functionality because of the dependency hell with different frameworks.
 var Emitter = function () {
   function Emitter() {
@@ -3030,7 +3030,7 @@ Dropzone.dataURItoBlob = function (dataURI) {
   // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
   var byteString = atob(dataURI.split(',')[1]);
 
-  // separate out the mime component
+  // separate out the mime components
   var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
   // write the bytes of the string to an ArrayBuffer

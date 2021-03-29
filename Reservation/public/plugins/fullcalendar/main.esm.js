@@ -2713,7 +2713,7 @@ function isInteractionPropsValid(state, calendar, dateSpanMeta, filterConfig) {
             }
         }
         // allow (a function)
-        var calendarEventStore = calendar.state.eventStore; // need global-to-calendar, not local to component (splittable)state
+        var calendarEventStore = calendar.state.eventStore; // need global-to-calendar, not local to components (splittable)state
         for (var _i = 0, _a = subjectConfig.allows; _i < _a.length; _i++) {
             var subjectAllow = _a[_i];
             var subjectDateSpan = __assign({}, dateSpanMeta, { range: subjectInstance.range, allDay: subjectDef.allDay });
@@ -3856,7 +3856,7 @@ Theme.prototype.iconOverridePrefix = '';
 var guid = 0;
 var Component = /** @class */ (function () {
     function Component(context, isView) {
-        // HACK to populate view at top of component instantiation call chain
+        // HACK to populate view at top of components instantiation call chain
         if (isView) {
             context.view = this;
         }
@@ -3883,7 +3883,7 @@ var Component = /** @class */ (function () {
     };
     Component.prototype.render = function (props) {
     };
-    // after destroy is called, this component won't ever be used again
+    // after destroy is called, this components won't ever be used again
     Component.prototype.destroy = function () {
     };
     return Component;
@@ -3932,7 +3932,7 @@ var DateComponent = /** @class */ (function (_super) {
         _super.prototype.destroy.call(this);
         removeElement(this.el);
     };
-    // TODO: WHAT ABOUT (sourceSeg && sourceSeg.component.doesDragMirror)
+    // TODO: WHAT ABOUT (sourceSeg && sourceSeg.components.doesDragMirror)
     //
     // Event Drag-n-Drop Rendering (for both events and external elements)
     // ---------------------------------------------------------------------------------------------------------------
@@ -3940,21 +3940,21 @@ var DateComponent = /** @class */ (function (_super) {
     renderEventDragSegs(state: EventSegUiInteractionState) {
       if (state) {
         let { isEvent, segs, sourceSeg } = state
-  
+
         if (this.eventRenderer) {
           this.eventRenderer.hideByHash(state.affectedInstances)
         }
-  
+
         // if the user is dragging something that is considered an event with real event data,
-        // and this component likes to do drag mirrors OR the component where the seg came from
+        // and this components likes to do drag mirrors OR the components where the seg came from
         // likes to do drag mirrors, then render a drag mirror.
-        if (isEvent && (this.doesDragMirror || sourceSeg && sourceSeg.component.doesDragMirror)) {
+        if (isEvent && (this.doesDragMirror || sourceSeg && sourceSeg.components.doesDragMirror)) {
           if (this.mirrorRenderer) {
             this.mirrorRenderer.renderSegs(segs, { isDragging: true, sourceSeg })
           }
         }
-  
-        // if it would be impossible to render a drag mirror OR this component likes to render
+
+        // if it would be impossible to render a drag mirror OR this components likes to render
         // highlights, then render a highlight.
         if (!isEvent || this.doesDragHighlight) {
           if (this.fillRenderer) {
@@ -4057,8 +4057,8 @@ var DateComponent = /** @class */ (function (_super) {
             !this.props.eventResize && // HACK
             !elementClosest(el, '.fc-mirror') &&
             (this.isPopover() || !this.isInPopover(el));
-        // ^above line ensures we don't detect a seg interaction within a nested component.
-        // it's a HACK because it only supports a popover as the nested component.
+        // ^above line ensures we don't detect a seg interaction within a nested components.
+        // it's a HACK because it only supports a popover as the nested components.
     };
     DateComponent.prototype.isValidDateDownEl = function (el) {
         var segEl = elementClosest(el, this.fgSegSelector);
@@ -4400,7 +4400,7 @@ function expandRanges(daysOfWeek, startTime, framingRange, dateEnv) {
     var endMarker = framingRange.end;
     var instanceStarts = [];
     while (dayMarker < endMarker) {
-        var instanceStart 
+        var instanceStart
         // if everyday, or this particular day-of-week
         = void 0;
         // if everyday, or this particular day-of-week
@@ -6443,7 +6443,7 @@ var EventClicking = /** @class */ (function (_super) {
 
 /*
 Triggers events and adds/removes core classNames when the user's pointer
-enters/leaves event-elements of a component.
+enters/leaves event-elements of a components.
 */
 var EventHovering = /** @class */ (function (_super) {
     __extends(EventHovering, _super);
@@ -6794,7 +6794,7 @@ var Calendar = /** @class */ (function () {
         var eventUiBases = this.eventUiBases = this.buildEventUiBases(renderableEventStore.defs, eventUiSingleBase, eventUiBySource);
         if (needsFull || !component) {
             if (component) {
-                component.freezeHeight(); // next component will unfreeze it
+                component.freezeHeight(); // next components will unfreeze it
                 component.destroy();
             }
             component = this.component = new CalendarComponent({
@@ -8507,7 +8507,7 @@ var Slicer = /** @class */ (function () {
         return segs;
     };
     /*
-    "complete" seg means it has component and eventRange
+    "complete" seg means it has components and eventRange
     */
     Slicer.prototype.sliceEventRanges = function (eventRanges, component, // TODO: kill
     extraArgs) {
@@ -8519,7 +8519,7 @@ var Slicer = /** @class */ (function () {
         return segs;
     };
     /*
-    "complete" seg means it has component and eventRange
+    "complete" seg means it has components and eventRange
     */
     Slicer.prototype.sliceEventRange = function (eventRange, component, // TODO: kill
     extraArgs) {

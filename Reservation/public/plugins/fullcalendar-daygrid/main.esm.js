@@ -558,14 +558,14 @@ var DayGridFillRenderer = /** @class */ (function (_super) {
             '</div>');
         trEl = skeletonEl.getElementsByTagName('tr')[0];
         if (startCol > 0) {
-            appendToElement(trEl, 
+            appendToElement(trEl,
             // will create (startCol + 1) td's
             new Array(startCol + 1).join(EMPTY_CELL_HTML));
         }
         seg.el.colSpan = endCol - startCol;
         trEl.appendChild(seg.el);
         if (endCol < colCnt) {
-            appendToElement(trEl, 
+            appendToElement(trEl,
             // will create (colCnt - endCol) td's
             new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML));
         }
@@ -1369,7 +1369,7 @@ var DayGridView = /** @class */ (function (_super) {
         this.scroller.destroy();
     };
     // Builds the HTML skeleton for the view.
-    // The day-grid component will render inside of a container defined by this HTML.
+    // The day-grid components will render inside of a container defined by this HTML.
     DayGridView.prototype.renderSkeletonHtml = function () {
         var theme = this.theme;
         return '' +
@@ -1464,7 +1464,7 @@ var DayGridView = /** @class */ (function (_super) {
         return viewHeight -
             subtractInnerElHeight(this.el, this.scroller.el); // everything that's NOT the scroller
     };
-    // Sets the height of just the DayGrid component in this view
+    // Sets the height of just the DayGrid components in this view
     DayGridView.prototype.setGridHeight = function (height, isAuto) {
         if (this.opt('monthMode')) {
             // if auto, make the height of each row the height that it would be if there were 6 weeks

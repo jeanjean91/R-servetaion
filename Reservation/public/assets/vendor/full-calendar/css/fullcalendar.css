@@ -28,7 +28,7 @@ body .fc {
 
 .fc-nonbusiness {
   /* default look for non-business-hours areas */
-  /* will inherit .fc-bgevent's styles */
+  /* will inherit .fc-bgevent's css */
   background: #d7d7d7; }
 
 /* Buttons (styled <button> tags, normalized to work cross-browser)
@@ -730,7 +730,7 @@ NOTE: use percentage font sizes or else old IE chokes
 /* Global Event Styles
 --------------------------------------------------------------------------------------------------*/
 .ui-widget .fc-event {
-  /* overpower jqui's styles on <a> tags. TODO: more DRY */
+  /* overpower jqui's css on <a> tags. TODO: more DRY */
   color: #fff;
   /* default TEXT color */
   text-decoration: none;
@@ -955,7 +955,7 @@ NOTE: use percentage font sizes or else old IE chokes
 /* TimeGrid axis running down the side (for both the all-day area and the slot area)
 --------------------------------------------------------------------------------------------------*/
 .fc .fc-axis {
-  /* .fc to overcome default cell styles */
+  /* .fc to overcome default cell css */
   vertical-align: middle;
   padding: 0 4px;
   white-space: nowrap; }
@@ -1101,7 +1101,7 @@ be a descendant of the grid when it is being dragged.
 
 .fc-time-grid-event.fc-selected {
   /* need to allow touch resizers to extend outside event's bounding box */
-  /* common fc-selected styles hide the fc-bg, so don't need this anyway */
+  /* common fc-selected css hide the fc-bg, so don't need this anyway */
   overflow: visible; }
 
 .fc-time-grid-event.fc-selected .fc-bg {

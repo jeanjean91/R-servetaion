@@ -47,4 +47,22 @@ class BookingRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    public function findByBook ()
+    {
+        $entityManager = $this ->getEntityManager();
+
+        $connect= $entityManager ->createQuery(    " 
+            SELECT  distinct COUNT( e.id) as total
+             FROM App\Entity\Booking e
+             WHERE e.id = e.id
+             ") ;
+
+
+
+
+        return $connect ->execute();
+    }
 }

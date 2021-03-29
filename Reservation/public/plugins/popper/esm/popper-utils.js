@@ -274,7 +274,7 @@ function includeScroll(rect, element) {
  * Helper to detect borders of a given element
  * @method
  * @memberof Popper.Utils
- * @param {CSSStyleDeclaration} styles
+ * @param {CSSStyleDeclaration} css
  * Result of `getStyleComputedProperty` on the given element
  * @param {String} axis - `x` or `y`
  * @return {number} borders - The borders size of the given axis
@@ -1006,7 +1006,7 @@ function runModifiers(modifiers, data, ends) {
  * @method
  * @memberof Popper.Utils
  * @argument {Element} element - Element to apply the attributes to
- * @argument {Object} styles
+ * @argument {Object} css
  * Object with a list of properties and values which will be applied to the element
  */
 function setAttributes(element, attributes) {
@@ -1025,7 +1025,7 @@ function setAttributes(element, attributes) {
  * @method
  * @memberof Popper.Utils
  * @argument {Element} element - Element to apply the style to
- * @argument {Object} styles
+ * @argument {Object} css
  * Object with a list of properties and values which will be applied to the element
  */
 function setStyles(element, styles) {

@@ -123,7 +123,7 @@
         'italic': 'Mettre en italique',
         'underline': 'Mettre en souligné',
         'strikethrough': 'Mettre en texte barré',
-        'removeFormat': 'Nettoyer les styles',
+        'removeFormat': 'Nettoyer les css',
         'justifyLeft': 'Aligner à gauche',
         'justifyCenter': 'Centrer',
         'justifyRight': 'Aligner à droite',

@@ -20,7 +20,7 @@
 /* TimeGrid axis running down the side (for both the all-day area and the slot area)
 --------------------------------------------------------------------------------------------------*/
 .fc .fc-axis {
-  /* .fc to overcome default cell styles */
+  /* .fc to overcome default cell css */
   vertical-align: middle;
   padding: 0 4px;
   white-space: nowrap;

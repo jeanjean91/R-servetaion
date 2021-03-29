@@ -17,9 +17,9 @@ export { allStringsOfArray1InArray2 };
 declare const getNormalizedCssPropName: (cssProp: string) => string;
 export { getNormalizedCssPropName };
 /**
- * Set inline styles on an HTML node
+ * Set inline css on an HTML node
  * @param {HTMLElement} node - HTML node
- * @param {Object} styles - object with styles
+ * @param {Object} styles - object with css
  * @returns {undefined}
  */
 declare function setStylesOnHTMLNode(node: Element, styles: any): void;

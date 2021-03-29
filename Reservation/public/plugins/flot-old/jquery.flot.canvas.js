@@ -84,7 +84,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 										lines = info.lines;
 
 									// Since every element at this level of the cache have the
-									// same font and fill styles, we can just change them once
+									// same font and fill css, we can just change them once
 									// using the values from the first element.
 
 									if (updateStyles) {
@@ -164,7 +164,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				textStyle = font;
 			}
 
-			// Retrieve (or create) the cache for the text's layer and styles
+			// Retrieve (or create) the cache for the text's layer and css
 
 			layerCache = this._textCache[layer];
 

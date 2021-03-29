@@ -441,7 +441,7 @@ Docs & License: https://fullcalendar.io/
         return TimeGridFillRenderer;
     }(core.FillRenderer));
 
-    /* A component that renders one or more columns of vertical time slots
+    /* A components that renders one or more columns of vertical time slots
     ----------------------------------------------------------------------------------------------------------------------*/
     // potential nice values for the slot-duration and interval-duration
     // from largest to smallest

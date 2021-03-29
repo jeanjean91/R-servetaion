@@ -544,7 +544,7 @@ var excelStrings = {
 		'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
 		'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
 			'<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'+
-			'<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>'+
+			'<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="css.xml"/>'+
 		'</Relationships>',
 
 	"[Content_Types].xml":
@@ -555,7 +555,7 @@ var excelStrings = {
 			'<Default Extension="jpeg" ContentType="image/jpeg" />'+
 			'<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml" />'+
 			'<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml" />'+
-			'<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml" />'+
+			'<Override PartName="/xl/css.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.css+xml" />'+
 		'</Types>',
 
 	"xl/workbook.xml":
@@ -763,7 +763,7 @@ var excelStrings = {
 			'<tableStyles count="0" defaultTableStyle="TableStyleMedium9" defaultPivotStyle="PivotStyleMedium4" />'+
 		'</styleSheet>'
 };
-// Note we could use 3 `for` loops for the styles, but when gzipped there is
+// Note we could use 3 `for` loops for the css, but when gzipped there is
 // virtually no difference in size, since the above can be easily compressed
 
 // Pattern matching for special number formats. Perhaps this should be exposed
@@ -1177,13 +1177,13 @@ DataTable.ext.buttons.excelHtml5 = {
 			addRow( data.header, rowPos );
 			$('row:last c', rels).attr( 's', '2' ); // bold
 		}
-	
+
 		dataStartRow = rowPos;
 
 		for ( var n=0, ie=data.body.length ; n<ie ; n++ ) {
 			addRow( data.body[n], rowPos );
 		}
-	
+
 		dataEndRow = rowPos;
 
 		if ( config.footer && data.footer ) {

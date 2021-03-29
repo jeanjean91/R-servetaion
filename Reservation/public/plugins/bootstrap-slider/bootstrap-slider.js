@@ -1,5 +1,5 @@
 /*! =======================================================
-                      VERSION  10.6.2              
+                      VERSION  10.6.2
 ========================================================= */
 "use strict";
 
@@ -636,21 +636,21 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 				this._removeClass(this.tooltip_min, 'hide');
 				this._removeClass(this.tooltip_max, 'hide');
 
-				// Undo existing inline styles for track
+				// Undo existing inline css for track
 				["left", "right", "top", "width", "height"].forEach(function (prop) {
 					this._removeProperty(this.trackLow, prop);
 					this._removeProperty(this.trackSelection, prop);
 					this._removeProperty(this.trackHigh, prop);
 				}, this);
 
-				// Undo inline styles on handles
+				// Undo inline css on handles
 				[this.handle1, this.handle2].forEach(function (handle) {
 					this._removeProperty(handle, 'left');
 					this._removeProperty(handle, 'right');
 					this._removeProperty(handle, 'top');
 				}, this);
 
-				// Undo inline styles and classes on tooltips
+				// Undo inline css and classes on tooltips
 				[this.tooltip, this.tooltip_min, this.tooltip_max].forEach(function (tooltip) {
 					this._removeProperty(tooltip, 'left');
 					this._removeProperty(tooltip, 'right');

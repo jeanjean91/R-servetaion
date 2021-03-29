@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Repository\BookingRepository;
+use App\Form\UserformType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\Query;
 use App\Repository\UserRepository;
 
 class AdminController extends AbstractController
@@ -16,10 +18,15 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function index(): Response
+    public function index(UserRepository $repository,BookingRepository $repo)
     {
+        /* $total ='user.id';*/
+        $user =$repository->findByExampleField();
+        $booking=$repo->findByBook ();
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
+            'user'=>$user,
+            'booking'=>$booking
         ]);
     }
 
@@ -88,7 +95,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin-{id}-roles", name="admin.roles")
      */
-    public function roles($id, UserRepository $repository,Request $request, ObjectManager $manager)
+    public function roles( $id, UserRepository $repository,Request $request,ObjectManager $manager)
     {
 
 
@@ -108,6 +115,7 @@ class AdminController extends AbstractController
                         $image->move(
                             $this->getParameter('image_directory'), $imageName);
                         $user->setImage($imageName);*/
+
 
             $manager->persist($user);
             $manager->flush();

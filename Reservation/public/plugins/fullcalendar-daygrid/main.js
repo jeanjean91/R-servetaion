@@ -562,14 +562,14 @@ Docs & License: https://fullcalendar.io/
                 '</div>');
             trEl = skeletonEl.getElementsByTagName('tr')[0];
             if (startCol > 0) {
-                core.appendToElement(trEl, 
+                core.appendToElement(trEl,
                 // will create (startCol + 1) td's
                 new Array(startCol + 1).join(EMPTY_CELL_HTML));
             }
             seg.el.colSpan = endCol - startCol;
             trEl.appendChild(seg.el);
             if (endCol < colCnt) {
-                core.appendToElement(trEl, 
+                core.appendToElement(trEl,
                 // will create (colCnt - endCol) td's
                 new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML));
             }
@@ -1373,7 +1373,7 @@ Docs & License: https://fullcalendar.io/
             this.scroller.destroy();
         };
         // Builds the HTML skeleton for the view.
-        // The day-grid component will render inside of a container defined by this HTML.
+        // The day-grid components will render inside of a container defined by this HTML.
         DayGridView.prototype.renderSkeletonHtml = function () {
             var theme = this.theme;
             return '' +
@@ -1468,7 +1468,7 @@ Docs & License: https://fullcalendar.io/
             return viewHeight -
                 core.subtractInnerElHeight(this.el, this.scroller.el); // everything that's NOT the scroller
         };
-        // Sets the height of just the DayGrid component in this view
+        // Sets the height of just the DayGrid components in this view
         DayGridView.prototype.setGridHeight = function (height, isAuto) {
             if (this.opt('monthMode')) {
                 // if auto, make the height of each row the height that it would be if there were 6 weeks

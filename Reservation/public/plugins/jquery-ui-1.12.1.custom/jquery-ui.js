@@ -2532,7 +2532,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 			applyClassChange,
 			allAnimations = o.children ? animated.find( "*" ).addBack() : animated;
 
-		// Map the animated objects to store the original styles.
+		// Map the animated objects to store the original css.
 		allAnimations = allAnimations.map( function() {
 			var el = $( this );
 			return {
@@ -2551,7 +2551,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 		};
 		applyClassChange();
 
-		// Map all animated objects again - calculate new styles and diff
+		// Map all animated objects again - calculate new css and diff
 		allAnimations = allAnimations.map( function() {
 			this.end = getElementStyles( this.el[ 0 ] );
 			this.diff = styleDifference( this.start, this.end );
@@ -4027,7 +4027,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 					.offset( offset );
 
 				// Need to save style here so that automatic style restoration
-				// doesn't restore to the original styles from before the animation.
+				// doesn't restore to the original css from before the animation.
 				$.effects.saveStyle( element );
 			}
 

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Repository;
-namespace App\Repository;
 
 use App\Entity\Conversation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

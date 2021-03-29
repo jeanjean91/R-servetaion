@@ -2184,7 +2184,7 @@ function swalOpenAnimationFinished(popup, container) {
   container.style.overflowY = 'auto';
 }
 /**
- * Open popup, add necessary classes and styles, fix scrollbar
+ * Open popup, add necessary classes and css, fix scrollbar
  *
  * @param {Array} params
  */
